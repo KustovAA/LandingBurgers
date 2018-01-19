@@ -1,0 +1,431 @@
+* {
+    box-sizing: border-box;
+}
+
+%html {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px; 
+}
+
+html {
+    @extend %html;
+}
+
+%clearfix {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+body {
+    @extend %html;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    line-height: 1.42;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+%visible-hidden {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.wrapper {
+    overflow: hidden;
+    position: relative;
+    min-width: 1100px;
+    min-height: 100%;
+}
+
+.first-screen {
+    background: url(../img/background/Cover.png) no-repeat;
+    background-size: cover;
+    min-height: 650px;
+    height: 100vh;
+    
+    .container {
+        position: relative;
+        width: 1100px;
+        margin: 0 auto;
+    }
+    
+    header {
+        max-height: 82px;
+        padding: 17px 0;
+
+        .container {
+            display: flex;
+            flex-flow: row nowrap;
+            align-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            background: url(../img/logo.png) no-repeat;
+            height: 80px;
+            width: 95px;
+        }
+
+        .about {
+            &__list {
+                display: flex;
+                flex-flow: row nowrap;
+                align-content: space-between;
+                margin-left: 290px;
+            }
+
+            &__item {
+                a {
+                    margin: 0 19px;
+                    text-decoration: none;
+                    font-size: 13px;
+                    font-family: "Ubuntu";
+                    color: rgb(255, 255, 255);
+                    text-transform: uppercase;
+                    line-height: 2.308;
+                    text-align: right;  
+                }
+
+                &::before {
+                    color: rgb(255, 255, 255);
+                    content: "•";
+                }
+
+                &:first-child {
+                    &::before {
+                        margin: 0;
+                        content: "";
+                    }
+                }
+            }
+
+            &__sell {
+                transition: background-color .3s linear;
+                border-radius: 5px;
+                background-color: rgb(228, 80, 40);
+                width: 97px;
+                height: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    background-color: rgb(193, 64, 30);
+                }
+
+                &-button {
+                    font-size: 13px;
+                    font-family: "Ubuntu";
+                    color: rgb(255, 255, 255);
+                    text-transform: uppercase;
+                    line-height: 2.308;
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    .container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: space-between;
+        justify-content: center;
+
+        .sidebar {
+            position: absolute;
+            left: 1112px;
+            top: 25px;
+            
+            .menu {
+
+                &__list {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-content: flex-start;
+                }
+
+                &__item {
+                    &:hover .menu__item-border {
+                        border-color: rgb(255, 255, 255);
+                    }
+                }
+
+                &__item-border {
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    border: 1px transparent solid;
+                    margin-bottom: 7px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                &__item-border.active {
+                    border-color: rgb(255, 255, 255);                    
+                }
+
+                &__item-link {
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background: rgb(255, 255, 255);                    
+                }
+            }
+        }
+
+        .content {
+            display: flex;
+            flex-flow: row nowrap;
+            align-content: center;
+            justify-content: center;
+            width: 928px;
+            height: 400px;
+            
+            &__desc {
+                margin-top: 140px;
+                padding-left: 12px;
+                width: 400px;
+                font-size: 72px;
+                line-height: 1.181;
+                text-align: left;
+                
+                &1 {
+                    font-family: "Gagalin";
+                    color: rgb(249, 180, 59);                    
+                }
+
+                &2 {
+                    font-family: "Lifehack";
+                    color: rgb(255, 255, 255);                    
+                }
+            }
+
+            &__phd:hover {
+                .content__drops {
+                    background: url(../img/drops.png) no-repeat;
+                    height: 241px;
+                    width: 451px;
+                    position: absolute;
+                    left: 110px;
+                    top: 70px;
+                }
+            }
+
+            &__photo {
+                background: url(../img/burger.png) no-repeat;
+                height: 420px;
+                width: 414px;                
+            }
+        }
+    }
+    
+    footer { 
+        margin-top: 225px;
+        height: 60px;
+        min-width: 1100px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        
+        .arrow__scroll {
+            background: url(../img/arrow-scroll.png) no-repeat;
+            width: 29px;
+            height: 14px;
+        }
+    }
+}
+
+.we {
+    background: url(../img/background/We.png) no-repeat;
+    background-size: cover;
+    min-height: 650px;
+    height: 100vh;
+    padding-top: 81px;
+    
+    .container {
+        .title {
+            font-size: 71.713px;
+            font-family: "Gagalin";
+            color: rgb(47, 50, 52);
+            line-height: 0.889;
+            display: flex;
+            justify-content: center;
+            margin-top: 80px;            
+        }
+
+        .menu {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            margin-top: 95px;
+            
+            &__list {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;                
+            }
+
+            &__item {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-between;
+                width: 300px;
+                height: 250px;
+                margin-left: 40px;
+                
+                &-pic {
+                    display: flex;
+                    width: 100px;
+                    height: 90px;
+                    background-repeat: no-repeat;
+                    align-self: center;
+
+                    img {
+                        @extend %visible-hidden;
+                    }
+                }
+
+                &-title {
+                    display: flex;
+                    align-self: center;
+                    font-size: 24px;
+                    font-family: "Lifehack";
+                    color: rgb(47, 50, 52);
+                    line-height: 1.167;
+                    width: 212px;                    
+                }
+
+                &-title--nat {
+                    padding-left: 25px;
+                }
+
+                &-desc {
+                    display: flex;
+                    justify-content: center;
+                    font-size: 14px;
+                    font-family: "Ubuntu";
+                    color: rgba(47, 50, 52, 0.8);
+                    line-height: 1.714;                    
+                }
+            }
+        }
+    }
+}
+
+.reviews {
+    background-size: cover;
+    width: 100%;
+    min-height: 650px;
+    height: 100vh;
+
+    
+
+    &__list {
+        display: flex;
+        flex-flow: row wrap;
+        width: 100%;
+        height: 100%;
+        
+        &-item {
+            width: 25%;
+            height: 50%;
+        }
+        
+        
+        &-item-pic {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: grayscale(1);      
+
+            img {
+                @extend %visible-hidden;
+            }
+
+            &:hover .reviews__review {
+                right: 0;
+                left: initial;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__review {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-content: center;
+        margin-left: 50%;
+        margin-top: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+        transition: opacity 0.7s;
+
+        &-title {
+            font-size: 14px;
+            font-family: "Gagalin";
+            color: rgb(255, 255, 255);
+            line-height: 2.008;
+            text-align: left;
+            margin-bottom: 32px;     
+        }
+
+        &-text {
+            font-size: 14px;
+            font-family: "Ubuntu";
+            color: rgb(255, 255, 255);
+            line-height: 1.714;
+            width: 222px;
+            height: 133px;   
+            margin-bottom: 20px;      
+        }
+
+        &-more {
+            display: flex;
+            justify-content: center;
+            border-radius: 5px;
+            background-color: rgb(47, 50, 52);
+            transition: background-color .7s linear;
+            width: 110px;
+            height: 35px;
+            
+            a {
+                display: flex;
+                align-self: center;
+                font-size: 13px;
+                font-family: "Ubuntu";
+                color: rgb(255, 255, 255);
+                text-transform: uppercase;
+                line-height: 2.308;
+                text-decoration: none;
+            }
+
+            &:hover {
+                background-color: rgb(31, 33, 34);
+            }
+        }
+
+    }      
+}
