@@ -1,0 +1,198 @@
+.first-screen {
+    background: url(../img/background/Cover.png) no-repeat;
+    background-size: cover;
+    min-height: 650px;
+    height: 100vh;
+    
+    .container {
+        position: relative;
+        width: 1100px;
+        margin: 0 auto;
+    }
+    
+    header {
+        max-height: 82px;
+        padding: 17px 0;
+
+        .container {
+            display: flex;
+            flex-flow: row nowrap;
+            align-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            background: url(../img/logo.png) no-repeat;
+            height: 80px;
+            width: 95px;
+        }
+
+        .about {
+            &__list {
+                display: flex;
+                flex-flow: row nowrap;
+                align-content: space-between;
+                margin-left: 290px;
+            }
+
+            &__item {
+                a {
+                    margin: 0 19px;
+                    text-decoration: none;
+                    font-size: 13px;
+                    font-family: "Ubuntu";
+                    color: rgb(255, 255, 255);
+                    text-transform: uppercase;
+                    line-height: 2.308;
+                    text-align: right;  
+                }
+
+                &::before {
+                    color: rgb(255, 255, 255);
+                    content: "•";
+                }
+
+                &:first-child {
+                    &::before {
+                        margin: 0;
+                        content: "";
+                    }
+                }
+            }
+
+            &__sell {
+                transition: background-color .3s linear;
+                border-radius: 5px;
+                background-color: rgb(228, 80, 40);
+                width: 97px;
+                height: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:hover {
+                    background-color: rgb(193, 64, 30);
+                }
+
+                &-button {
+                    font-size: 13px;
+                    font-family: "Ubuntu";
+                    color: rgb(255, 255, 255);
+                    text-transform: uppercase;
+                    line-height: 2.308;
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    .container {
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: space-between;
+        justify-content: center;
+
+        .sidebar {
+            position: absolute;
+            left: 1112px;
+            top: 25px;
+            
+            .menu {
+
+                &__list {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-content: flex-start;
+                }
+
+                &__item {
+                    &:hover .menu__item-border {
+                        border-color: rgb(255, 255, 255);
+                    }
+                }
+
+                &__item-border {
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    border: 1px transparent solid;
+                    margin-bottom: 7px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                &__item-border.active {
+                    border-color: rgb(255, 255, 255);                    
+                }
+
+                &__item-link {
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background: rgb(255, 255, 255);                    
+                }
+            }
+        }
+
+        .content {
+            display: flex;
+            flex-flow: row nowrap;
+            align-content: center;
+            justify-content: center;
+            width: 928px;
+            height: 400px;
+            
+            &__desc {
+                margin-top: 140px;
+                padding-left: 12px;
+                width: 400px;
+                font-size: 72px;
+                line-height: 1.181;
+                text-align: left;
+                
+                &1 {
+                    font-family: "Gagalin";
+                    color: rgb(249, 180, 59);                    
+                }
+
+                &2 {
+                    font-family: "Lifehack";
+                    color: rgb(255, 255, 255);                    
+                }
+            }
+
+            &__phd:hover {
+                .content__drops {
+                    background: url(../img/drops.png) no-repeat;
+                    height: 241px;
+                    width: 451px;
+                    position: absolute;
+                    left: 110px;
+                    top: 70px;
+                }
+            }
+
+            &__photo {
+                background: url(../img/burger.png) no-repeat;
+                height: 420px;
+                width: 414px;                
+            }
+        }
+    }
+    
+    footer { 
+        margin-top: 225px;
+        height: 60px;
+        min-width: 1100px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        
+        .arrow__scroll {
+            background: url(../img/arrow-scroll.png) no-repeat;
+            width: 29px;
+            height: 14px;
+        }
+    }
+}
