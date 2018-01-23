@@ -10,11 +10,9 @@
 
 .container--we {
     flex-flow: column nowrap;
-    margin-bottom: rem(30px);
 }
 
 .title--black {
-    margin-top: 80px;
     color: #2f3234;          
 }
 
@@ -22,7 +20,7 @@
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    margin-top: 95px;
+    margin-top: rem(50px);
     
     &__list {
         display: flex;
