@@ -1,0 +1,84 @@
+.menu {
+    background: url(../img/background/Menu.png) no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+.title--menu {
+    color: rgb(255, 255, 255);
+    margin-top: rem(150px);
+    margin-left: rem(200px);
+}
+
+.menu__list {
+    position: absolute;
+    max-width: 65%;
+    height: 100%;
+    right: 0;
+    background-color: rgba(20, 20, 20, 0.7);
+    display: flex;
+    flex-direction: row;
+}
+
+.menu__item {
+    display: flex;
+    flex-direction: row;
+
+    &.active .menu__desc-wrapper {
+        width: rem(540px);
+    }
+}
+
+.menu__type-cover {
+    font-size: rem(40px);
+    font-family: "Gagalin";
+    color: $white;
+    width: rem(80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--meat {
+        background: url('../img/background/menu_meat.png') no-repeat;
+        background-size: cover;
+    }
+
+    &--veg {
+        background: url('../img/background/menu_veg.png') no-repeat;
+        background-size: cover;
+    }
+
+    &--diet {
+        background: url('../img/background/menu_diet.png') no-repeat;
+        background-size: cover;
+    }
+}
+
+.menu__type-title {
+    transform: rotate(-90deg);
+    width: 100vh;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.menu__desc-wrapper {
+    background: rgba($dark-grey, 0.93);
+    width: 0;
+    transition: width 0.5s;
+    overflow: hidden;
+}
+
+.menu__desc {
+    padding: rem(60px) rem(35px);
+    line-height: rem(24px);
+    color: $white;
+    font-size: 14px;
+    font-family: "Ubuntu";
+    line-height: 1.714;
+    padding-left: rem(45px);
+    padding-top: rem(60px);
+}
+  
+  

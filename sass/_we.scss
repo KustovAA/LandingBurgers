@@ -1,5 +1,3 @@
-@import "_base.scss";
-
 .we {
     background: url(../img/background/We.png) no-repeat;
     background-size: cover;
@@ -13,7 +11,7 @@
 }
 
 .title--black {
-    color: #2f3234;          
+    color: $dark-grey;      
 }
 
 .best {

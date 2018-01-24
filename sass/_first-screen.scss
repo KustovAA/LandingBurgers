@@ -1,6 +1,3 @@
-@import "config/_mixins.scss";
-@import "_base.scss";
-
 .first-screen {
     background: url(../img/background/Cover.png) no-repeat;
     background-size: cover;
@@ -120,7 +117,7 @@ header {
 
         &--title1 {
             align-self: flex-start;
-            color: rgb(249, 180, 59);                    
+            color: $yellow;                    
         }
 
         &--title2 {
