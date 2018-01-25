@@ -1,0 +1,43 @@
+.sidebar {
+    position: fixed;
+    right: 50px;
+    top: 90px;
+    z-index: 100;
+}
+    
+.nav {
+
+    &__list {
+        display: flex;
+        flex-flow: column nowrap;
+        align-content: flex-start;
+    }
+
+    &__item {
+        &:hover .nav__item-link {
+            background: #f9b43b;
+        }
+    }
+
+    &__item-border {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 1px transparent solid;
+        margin-bottom: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__item-border.active {
+        border-color: rgb(255, 255, 255);                    
+    }
+
+    &__item-link {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgb(255, 255, 255);                    
+    }
+}

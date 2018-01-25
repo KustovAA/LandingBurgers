@@ -1,0 +1,100 @@
+@import "_base.scss";
+
+.reviews {
+    background-size: cover;
+    width: 100%;
+    min-height: 650px;
+    height: 100vh;
+
+    &__list {
+        display: flex;
+        flex-flow: row wrap;
+        width: 100%;
+        height: 100%;
+        
+        &-item {
+            width: 25%;
+            height: 50%;
+        }
+        
+        
+        &-item-wrap-pic {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: grayscale(1);      
+
+            img {
+                @extend %visible-hidden;
+            }
+
+            &:hover .reviews__review {
+                left: 50%;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__review {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-content: center;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+        transition: opacity 0.7s;
+
+        &-title {
+            font-size: 14px;
+            font-family: "Gagalin";
+            color: rgb(255, 255, 255);
+            line-height: 2.008;
+            text-align: left;
+            margin-bottom: 32px;     
+        }
+
+        &-text {
+            font-size: 14px;
+            font-family: "Ubuntu";
+            color: rgb(255, 255, 255);
+            line-height: 1.714;
+            width: 222px;
+            height: 133px;   
+            margin-bottom: 20px;      
+        }
+
+        &-more {
+            display: flex;
+            justify-content: center;
+            border-radius: 5px;
+            background-color: rgb(47, 50, 52);
+            transition: background-color .7s linear;
+            width: 110px;
+            height: 35px;
+            
+            a {
+                display: flex;
+                align-self: center;
+                font-size: 13px;
+                font-family: "Ubuntu";
+                color: rgb(255, 255, 255);
+                text-transform: uppercase;
+                line-height: 2.308;
+                text-decoration: none;
+            }
+
+            &:hover {
+                background-color: rgb(31, 33, 34);
+            }
+        }
+
+    }      
+}

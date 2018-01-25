@@ -1,0 +1,69 @@
+@import "config/_mixins.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+%html {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px; 
+}
+
+html {
+    @extend %html;
+}
+
+%clearfix {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+body {
+    @extend %html;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    line-height: 1.42;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.container {
+    max-width: rem(940px);
+    min-width: rem(300px);
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.sections {
+    min-height: rem(650px);
+    height: 100vh;
+}
+
+.title {
+    font-size: rem(72px);
+    font-family: "Gagalin";
+    line-height: 0.889;
+    display: flex;
+    justify-content: center;
+}
