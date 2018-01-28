@@ -2,6 +2,7 @@
     background: url(../img/background/Menu.png) no-repeat;
     background-size: cover;
     display: flex;
+    position: relative;
 }
 
 .title--menu {
@@ -18,15 +19,27 @@
     background-color: rgba(20, 20, 20, 0.7);
     display: flex;
     flex-direction: row;
+
+    @include tablets {
+        max-width: 100%;
+    }
 }
 
 .menu__item {
     display: flex;
     flex-direction: row;
 
-    &.active .menu__desc-wrapper {
-        width: rem(540px);
+    &.active { 
+        & .menu__desc-wrapper {
+            width: 100%;
+        }
+
+        & .menu__type-title {
+            color: $yellow;
+        }
     }
+
+
 }
 
 .menu__type-cover {
@@ -37,6 +50,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    
 
     &--meat {
         background: url('../img/background/menu_meat.png') no-repeat;
@@ -58,9 +73,14 @@
     transform: rotate(-90deg);
     width: 100vh;
     position: absolute;
+    display: inline-block;
     text-align: center;
-    margin: auto;
     cursor: pointer;
+
+    @include tablets {
+        width: 90vh;
+        text-align: left;
+    }
 }
 
 .menu__desc-wrapper {

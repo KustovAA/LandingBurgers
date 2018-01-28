@@ -1,0 +1,100 @@
+.map {
+    background: url(../img/background/map.png) no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.container--map {
+    display: flex;
+    justify-content: space-between;
+
+    @include phones {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.footer {
+    background-color: #0f0f0f;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: $white;
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        padding-top: rem(2.5px);
+        padding-bottom: rem(2.5px);
+        padding-left: rem(80px);
+    
+        @include phones {
+            align-items: center;
+            padding-top: rem(20px);
+            padding-bottom: 0;
+        }
+    }
+
+    &__phone {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $red;
+        font-family: 'Ubuntu';
+        transition: all 0.5s;
+    
+        &-icon {
+            width: rem(13px);
+            height: rem(12px);
+            fill: $red;
+            margin-right: rem(8px);
+            transition: all 0.5s;
+        }
+    
+        &:hover {
+            color: $yellow;
+        }
+    }
+    
+    &__phone:hover &__phone-icon {
+        fill: $yellow;
+    }
+}
+
+.socials {
+    &__list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-top: rem(20px);
+        padding-right: rem(80px);
+
+        @include phones {
+            padding-right: 0;
+            padding-left: rem(80px);
+        }
+    }
+    
+    &__item {
+        margin-left: rem(20px);
+        
+        &:first-child {
+            margin-left: rem(0px);
+        }
+    
+    }
+    
+    &__icon {
+        width:rem(20px);
+        height: rem(20px);
+        fill: $white;
+        opacity: 0.3;
+        
+        transition: opacity 0.5s;
+    
+        &:hover {
+            opacity: 1;
+        }
+    
+    }
+}

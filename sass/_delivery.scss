@@ -1,0 +1,244 @@
+.delivery {
+    background: url('../img/background/delivery.png') no-repeat;
+    background-size: cover;
+    @extend %center-flex;
+}
+
+
+
+.container--delivery {
+    flex-flow: column nowrap;
+}
+
+.title--delivery {
+    color: $yellow;
+    text-align: center;
+
+    @include phones {
+        font-size: rem(50px);
+        line-height: 1.2;
+    }
+}
+  
+
+.form {
+    margin-top: rem(55px);
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+
+    @include tablets {
+        flex-flow: column nowrap;
+        margin-top: rem(20px);
+        line-height: 1.2;
+    }
+
+    @include phones {
+        line-height: 1.2;
+        margin-top: 0;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    &__caption {
+        font-size: rem(14px);
+        font-family: "Ubuntu";
+        margin-bottom: rem(5px);
+        color: $white;
+    }
+
+    &__input {
+        border-radius: rem(5px);
+        border: rem(1px) solid transparent;
+        outline: none;
+        cursor: pointer;
+        padding: rem(10px);
+        max-width: 100%;
+    
+        &--textarea {
+            resize: none;
+            height: rem(112px);
+            margin-bottom: rem(20px);
+        }
+    
+        &:hover, :focus {
+            border-color: $yellow;
+        }
+    }
+
+    &__options {
+        display: flex;
+        flex-flow: row nowrap;
+        color: $white;
+
+        &-type {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            align-items: center;
+            margin-right: rem(20px);
+        }
+
+        &-radio {
+            position: absolute;
+            left: -9999px;
+        }
+
+        &-fake {
+            @include circle (rem(15px),$white);
+            position: relative;
+            cursor: pointer;
+            margin-right: rem(10px);
+        }
+
+        &-radio:checked + &-fake::after {
+            content: "";
+            @include circle(rem(7px),$red);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            
+        }
+    }
+
+    &__checkbox {
+        display: flex;
+        align-items: center;
+        margin-top: rem(30px);
+        color: $white;
+
+        &-visual {
+            position: absolute;
+            left: -9999px;
+        }
+
+        &-fake {
+            background-color: $white;
+            height: rem(15px);
+            width: rem(15px);
+            margin-right: rem(10px);
+            position: relative;
+        }
+
+        &-visual:checked + &-fake:after {
+            content: "";
+            height: rem(9px);
+            width: rem(11px);
+            position: absolute;
+            background: url('../img/checkmark.png') no-repeat;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+
+    &__submit {
+        color: $white;
+        padding: rem(3px) rem(16px);
+        line-height: rem(30px);
+        border-radius: rem(5px);
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: background-color 0.5s;
+        &--order {
+            background-color: $red;
+            font-size: rem(13px);
+            font-family: "Ubuntu";
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: darken($red, 15%);
+            }
+        }
+    
+        &--clear {
+            background-color: transparent;
+            margin-left: rem(5px);
+    
+            &:hover {
+                background-color: darken($dark-grey, 10%);
+            }
+        }
+    }
+
+    &__btns {
+        position: absolute;
+        bottom: rem(-50px);
+        color: $white;
+
+        @include phones {
+            bottom: rem(-60px);
+            width: rem(300px);
+        }
+    }
+}
+
+.form__left {
+    display: flex;
+    flex-flow: row wrap;
+    width: 49%;
+    margin-right: 2%;
+
+    @include tablets {
+        width: 50%;
+        margin-right: 0;
+    }
+    
+
+    &--longline {
+        width: 100%; 
+        margin-bottom: 4%;
+    }
+
+    &--shortline {
+        width: 47.5%;
+        margin-bottom: 4%;
+        
+    }
+
+    &--name {
+        margin-right: 5%;
+    }
+
+    &--adress {
+        width: 100%;
+        
+        &-list {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        &-item {
+            width: 21%;
+            margin-right: 5.333%;
+            
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+} 
+
+.form__right {
+    display: flex;
+    position: relative;
+    flex-flow: column nowrap;
+    width: 49%;
+    height: 100%;
+
+    @include tablets {
+        margin-top: rem(15px);
+        width: 50%;
+    }
+
+    &-main {
+        height: 100%;
+    }
+}

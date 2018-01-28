@@ -13,6 +13,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include tablets {
+        width: 100%;
+        position: relative;
+    }
 }
 
 .team__content {
@@ -23,6 +28,13 @@
 
 .team__list {
     padding-top: rem(60px);
+
+    @include tablets {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .team__item {
@@ -32,12 +44,16 @@
     &-name {
         font-size: rem(14px);
         font-family: "Gagalin";
-        color: rgb(255, 255, 255);
+        color: $white;
         margin: rem(15px) 0;
         display: flex;
         align-items: center;
         transition: color 0.5s;
         cursor: pointer;
+
+        @include tablets {
+            justify-content: center;
+        }
 
         &::before {
             content: "";
@@ -64,11 +80,20 @@
     height: 0;
     overflow: hidden;
     transition: all .5s;
+
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .team__item.active {
     & .team__info {
         height: rem(105px);
+
+        @include tablets {
+            height: rem(205px);
+        }
     }
 
     & .team__item-name {
@@ -94,11 +119,21 @@
 .team__desc {
     max-width: rem(240px);
     color: $white;
+
+    @include tablets {
+        text-align: center;
+        max-width: rem(340px);
+    }
 }
 
 .team__position {
     font-weight: bold;
     margin-bottom: rem(15px);
+
+    @include tablets {
+        margin-top: rem(15px);
+        text-align: center;
+    }
 }
 
 .team__about {

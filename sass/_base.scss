@@ -11,6 +11,10 @@
 
 html {
     @extend %html;
+    
+    @include phones-small {
+        font-size: 4vmin;
+    }
 }
 
 %clearfix {
