@@ -27,6 +27,7 @@ html {
 
 body {
     @extend %html;
+    font-family: 'Ubuntu';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
     line-height: 1.42;
@@ -60,6 +61,8 @@ ul {
 .sections {
     min-height: rem(650px);
     height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 .title {
