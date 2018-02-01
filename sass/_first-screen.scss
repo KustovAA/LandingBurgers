@@ -209,16 +209,20 @@ header {
     &__photo {
         width: 50%;
         margin-right: rem(7px);
-        min-height: rem(420px);
+        height: rem(420px);
         
         @include tablets {
-            @include tablets {
-                width: 100%;
-            }
-        
-            @include phones {
-                min-height: rem(343px);
-            }
+            width: 100%;
+            height: rem(380px);
+        }
+    
+        @include phones {
+            height: rem(343px);
+        }
+
+        &-img {
+            max-height: 100%;
+            max-width: 100%;
         }
 
     }

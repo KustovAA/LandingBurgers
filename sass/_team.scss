@@ -30,6 +30,8 @@
 
 .team__list {
     padding-top: rem(60px);
+    margin-left: rem(20px);
+    
 
     @include tablets {
         display: flex;
@@ -157,4 +159,6 @@
 
 .title--team {
     color: $yellow;
+    justify-content: flex-start;
+    margin-left: rem(20px);
 }
