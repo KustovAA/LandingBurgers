@@ -96,13 +96,16 @@
 
 .menu__desc {
     padding: rem(60px) rem(35px);
-    line-height: rem(24px);
     color: $white;
     font-size: rem(14px);
     font-family: "Ubuntu";
     line-height: 1.714;
     padding-left: rem(45px);
     padding-top: rem(60px);
+
+    @include phones {
+        padding-top: rem(20px);
+    }
 }
   
   

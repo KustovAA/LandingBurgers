@@ -58,6 +58,10 @@ ul {
     align-items: center;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 .sections {
     min-height: rem(650px);
     height: 100vh;

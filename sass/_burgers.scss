@@ -1,0 +1,281 @@
+.burgers {
+    background-image: linear-gradient($yellow 0%, #ec9039 48%, $yellow 74%);
+    background-size: cover;
+    @extend %center-flex;
+}
+
+%burgers__side {
+    position: relative;
+    height: 100%;
+    width: rem(70px);
+}
+
+%scroll {
+    position: absolute;
+    top: 50%;
+    height: rem(30px);
+    width: rem(24px);
+}
+
+.burgers__left {
+    @extend %burgers__side;
+    display: flex;
+    justify-content: flex-end;
+
+    &-scroll {
+        @extend %scroll;
+        transform: rotate(90deg);
+    }
+}
+
+.burgers__right {
+    @extend %burgers__side;
+
+    &-scroll {
+        @extend %scroll;
+        transform: rotate(-90deg);
+    }
+}
+
+.burgers__scroll-svg {
+    width: 100%;
+    height: 100%;
+    fill: $white;
+}
+
+.burgers__content {
+    @include tablets {
+        flex-direction: column;
+    }
+}
+
+.burgers__picture {
+    width: 50%;
+    height: rem(470px);
+    padding: rem(80px) 0;
+    position: relative;
+
+    @include tablets {
+        width: 75%;
+        padding: 0 0;
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+.burgers__components {
+    border-radius: rem(5px);
+    background-color: $red;
+    opacity: 0.4;
+    transition: opacity .7s;
+    width: rem(90px);
+    height: rem(90px);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    left: 0;
+    top: 0;
+
+    @include tablets {
+        top: rem(100px);
+    }
+
+    @include phones {
+        top: rem(140px);
+        left: rem(-85px);
+    }
+
+    &-svg {
+        width: 50%;
+        height: 50%;
+        fill: $white;
+    }
+
+    &-text {
+        margin-top: rem(3px);
+        font-size: rem(14px);
+        font-family: "Gagalin";
+        color: $white;
+        text-align: center;
+    }
+
+    &:hover {
+        opacity: 1;
+
+    }
+
+    &:hover &-details {
+        opacity: .8;
+        right: -270px;
+    }
+}
+
+.burgers__kcal {
+    background: url(../img/kkal.svg) 50% 0% no-repeat;
+    height: rem(80px);
+    width: rem(65px);
+    font-size: rem(14px);
+    line-height: 1.2;
+    font-family: "Gagalin";
+    color: $white;
+    opacity: 0.5;
+    @extend %center-flex;
+    flex-flow: column nowrap;
+    padding-top: rem(20px);
+
+    &-count {
+        margin-bottom: rem(6px);
+        font-size: rem(20px);
+        line-height: 1.7;
+    }
+
+    @include tablets {
+        position: absolute;
+        right: 0;
+        top: rem(100px);
+    }
+
+    @include phones {
+        right: rem(-85px);
+        top: rem(140px);
+    }
+} 
+     
+.burger__photo {
+    width: 100%;
+    height: 100%;
+
+    @include tablets {
+        height: 80%;
+        padding-top: 80px;
+    }
+
+    @include phones {
+        height: 70%;
+    }
+}
+
+.burgers__desc {
+    width: 50%;
+
+    @include tablets {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: rem(80px);
+    }
+
+    @include phones {
+        margin-bottom: rem(180px);
+    }
+}
+
+.details {
+    border-radius: rem(5px);
+    background-color: $white;
+    height: rem(330px);
+    width: rem(270px);
+    opacity: 0;
+    position: absolute;
+    right: -9999px;
+    transition: opacity .7s;
+    top: 0;
+
+    &__list {
+        padding-top: rem(8px);
+        padding-left: rem(20px);
+    }
+}
+
+.details__item {
+    margin: rem(12px) 0;
+    display: flex;
+    align-items: center;
+    font-size: rem(14px);
+    color: rgb(47, 50, 52);
+
+    &-svg {
+        height: rem(38px);
+        width: rem(45px);
+    }
+
+    &-name {
+        margin-left: rem(20px);
+        font-weight: 500;
+    }
+
+    &-weight {
+        margin-left: auto;
+        margin-right: rem(20px);
+        text-align: right;
+    }
+}
+
+.title--burgers {
+    color: $white;
+
+    @include tablets {
+        text-align: center;
+        width: 75%;
+    }
+
+    @include phones {
+        width: 100%;
+    }
+}
+
+.burgers__desc {
+    &-text {
+        margin-top: rem(60px);
+        margin-bottom: rem(40px);
+        font-size: rem(14px);
+        color: $white;
+        line-height: 1.714;
+        text-align: left;
+
+        @include tablets {
+            margin-top: rem(10px);
+            text-align: center;
+        }
+    }
+}
+
+.order {
+    &__price {
+        font-size: rem(72px);
+        font-family: "Gagalin";
+        color: $red;
+        line-height: 0.39;
+
+        &--currency {
+            font-size: rem(32px);
+        }
+    }
+
+    &__btn {
+        transition: background-color .5s linear;
+        border-radius: rem(5px);
+        border-color: $red;
+        background-color: $red;
+        width: rem(97px);
+        height: rem(35px);
+        @extend %center-flex;
+        display: inline-flex;
+        margin-left: rem(30px);
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($red, 15%);
+        }
+
+        &-btn {
+            font-size: rem(13px);
+            font-weight: 500;
+            color: $white;
+            text-transform: uppercase;
+        }
+    }
+}  
