@@ -219,11 +219,13 @@
 
     @include tablets {
         text-align: center;
-        width: 75%;
+        width: 90%;
+        font-size: rem(65px);
     }
 
     @include phones {
         width: 100%;
+        font-size: rem(60px);
     }
 }
 
@@ -276,6 +278,10 @@
             font-weight: 500;
             color: $white;
             text-transform: uppercase;
+        }
+
+        @include phones {
+            margin-left: rem(5px);
         }
     }
 }  
