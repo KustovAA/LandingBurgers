@@ -26,14 +26,17 @@ detailsClose.addEventListener("click", function() {
     details.style.left = "-9999px";
 });
 
-const menuPoints = document.querySelectorAll(".about__item");
-const menuPointsNav = document.querySelectorAll(".nav__item-link");
+const navList = document.querySelector(".nav__list");
+const aboutList = document.querySelector(".about__list");
 
-for (let i = 0; i < menuPoints.length; i++) {
-    menuPoints[i].addEventListener("click", function(event) {
+navList.addEventListener("click", function(event) {
+    if (event.target.classList.contains("nav__item-link")) {
         event.preventDefault();
-    });
-    menuPointsNav[i].addEventListener("click", function(event) {
+    }
+});
+
+aboutList.addEventListener("click", function() {
+    if (event.target.classList.contains("about__item-link")) {
         event.preventDefault();
-    });
-}
+    }
+});
