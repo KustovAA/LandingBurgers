@@ -1,19 +1,28 @@
-@import "_base.scss";
-
 .we {
     background: url(../img/background/We.png) no-repeat;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @extend %center-flex;
 }
 
 .container--we {
     flex-flow: column nowrap;
+    
+    @include phones {
+        align-items: flex-start;
+    }
 }
 
 .title--black {
-    color: #2f3234;          
+    color: $dark-grey;
+    
+    @include tablets {
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    @include phones {
+        margin-left: rem(50px);
+    }
 }
 
 .best {
@@ -21,53 +30,92 @@
     flex-flow: row nowrap;
     justify-content: center;
     margin-top: rem(50px);
+
+    @include phones {
+        justify-content: flex-start;
+    }
     
     &__list {
         display: flex;
         flex-flow: row nowrap;
+        width: 100%;
+        justify-content: space-between;
+
+
+        @include phones {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 
     &__item {
         display: flex;
         flex-flow: column nowrap;
         justify-content: space-between;
-        width: 300px;
-        height: 250px;
-        margin-left: 40px;
+        width: rem(300px);
+        height: rem(250px);
+        margin-left: rem(30px);
+
+        @include tablets {
+            width: rem(212px);
+            line-height: 1.2;
+        }
+
+        @include phones {
+            flex-direction: row;
+            margin-bottom: rem(30px);
+            width: rem(350px);
+            height: rem(150px);
+        }
         
         &-pic {
             display: flex;
-            width: 100px;
-            height: 90px;
+            width: rem(100px);
+            height: rem(90px);
             background-repeat: no-repeat;
             align-self: center;
+        }
 
-            img {
-                @extend %visible-hidden;
+        &-wrap {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+
+            @include phones {
+                width: rem(250px);
+                padding-left: 20px;
             }
         }
 
         &-title {
             display: flex;
             align-self: center;
-            font-size: 24px;
+            font-size: rem(24px);
             font-family: "Lifehack";
             color: rgb(47, 50, 52);
             line-height: 1.167;
-            width: 212px;                    
+            width: rem(212px);
+            min-height: rem(50px);
         }
 
         &-title--nat {
-            padding-left: 25px;
+            padding-left: rem(25px);
+
+            @include phones {
+                padding-left: 0;
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
         }
 
         &-desc {
             display: flex;
             justify-content: center;
-            font-size: 14px;
+            font-size: rem(14px);
+            min-height: rem(100px);
             font-family: "Ubuntu";
             color: rgba(47, 50, 52, 0.8);
-            line-height: 1.714;                    
+            line-height: 1.714;
         }
     }
 }

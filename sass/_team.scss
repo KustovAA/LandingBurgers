@@ -1,0 +1,145 @@
+.team {
+    background: url(../img/background/Team.png) no-repeat;
+    background-size: cover;
+}
+
+.team__wrapper {
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba($dark-grey, 0.93);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include tablets {
+        width: 100%;
+        position: relative;
+    }
+}
+
+.team__content {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-right: rem(50px);
+}
+
+.team__list {
+    padding-top: rem(60px);
+
+    @include tablets {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.team__item {
+    display: flex;
+    flex-flow: column nowrap;
+
+    &-name {
+        font-size: rem(14px);
+        font-family: "Gagalin";
+        color: $white;
+        margin: rem(15px) 0;
+        display: flex;
+        align-items: center;
+        transition: color 0.5s;
+        cursor: pointer;
+
+        @include tablets {
+            justify-content: center;
+        }
+
+        &::before {
+            content: "";
+            display: flex;
+            align-self: flex-end;
+            height: 0;
+            width: 0;
+            border-bottom: rem(6px) solid transparent;
+            border-top: rem(6px) solid $yellow;
+            border-right: rem(5px) solid transparent;
+            border-left: rem(5px) solid transparent;
+            margin-right: rem(10px);
+        }
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+}
+
+.team__info {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 0;
+    overflow: hidden;
+    transition: all .5s;
+
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.team__item.active {
+    & .team__info {
+        height: rem(105px);
+
+        @include tablets {
+            height: rem(205px);
+        }
+    }
+
+    & .team__item-name {
+        &::before {
+            transform: rotate(180deg);
+            align-self: flex-start;
+        }
+    }
+}
+
+.team__photo {
+    @include circle (rem(100px), transparant);
+    overflow: hidden;
+    position: relative;
+    margin: 0 rem(20px);
+    background-repeat: no-repeat;
+}
+
+.team__img {
+    @extend %visible-hidden;
+}
+
+.team__desc {
+    max-width: rem(240px);
+    color: $white;
+
+    @include tablets {
+        text-align: center;
+        max-width: rem(340px);
+    }
+}
+
+.team__position {
+    font-weight: bold;
+    margin-bottom: rem(15px);
+
+    @include tablets {
+        margin-top: rem(15px);
+        text-align: center;
+    }
+}
+
+.team__about {
+    line-height: rem(24px);
+}
+
+.title--team {
+    color: $yellow;
+}
