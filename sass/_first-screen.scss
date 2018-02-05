@@ -2,6 +2,7 @@
     background: url(../img/background/Cover.png) no-repeat;
     background-size: cover;
     @extend %center-flex;
+    flex-direction: column;
 }
 
 .container--header {
@@ -9,7 +10,6 @@
     width: 100%;
 }
 
-    
 header {
     position: absolute;
     top: 0;
@@ -20,14 +20,9 @@ header {
 
 .logo {
     display: flex;
-    background: url(../img/logo.png) no-repeat;
     height: rem(80px);
     width: rem(95px);
     z-index: 500;
-
-    &__img {
-        @extend %visible-hidden;
-    }
 
     @include tablets {  
         margin-right: auto;
@@ -39,16 +34,19 @@ header {
     margin-right: rem(25px);
     width: rem(24px);
     height: rem(35px);
+    z-index: 600;
     display: none;
     background: url('../img/compact-menu.svg') 50% 50% no-repeat;
     opacity: 1;
+    cursor: pointer;
 
     @include tablets {
         display: flex;
     }
 }
 
-.about.active {
+.about.open {
+    position: relative;
 
     @include tablets {
         justify-content: center;
@@ -82,9 +80,21 @@ header {
         }
     }
 
-    & .about__sell, .compact-menu {
+    & .about__sell {
         @include tablets {
             display: none;
+        }
+    }
+
+    .compact-menu {
+        @include tablets {
+            width: rem(16px);
+            height: rem(16px);
+            background: url('../img/close.svg') 50% 50% no-repeat;
+            opacity: 0.7;
+            position: absolute;
+            top: rem(40px);
+            right: rem(5px);
         }
     }
 }
@@ -107,14 +117,19 @@ header {
 
     &__item {
         a {
-            margin: 0 rem(19px);
+            margin: 0 rem(15px);
             text-decoration: none;
             font-size: rem(13px);
             font-family: "Ubuntu";
             color: $white;
             text-transform: uppercase;
+            transition: color .3s;
             line-height: 2.308;
-            text-align: right;  
+            text-align: right;
+            
+            &:hover {
+                color: $yellow;
+            }
 
             @include tablets {
                 font-size: rem(24px);
@@ -147,6 +162,7 @@ header {
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
 
         &:hover {
             background-color: darken($red, 15%);
@@ -155,9 +171,9 @@ header {
         &-button {
             font-size: rem(13px);
             font-family: "Ubuntu";
-            color: rgb(255, 255, 255);
+            color: $white;
             text-transform: uppercase;
-            line-height: 2.308;
+            font-weight: 500;
         }
     }
 }
@@ -191,6 +207,10 @@ header {
         flex-direction: column;
         justify-content: flex-start;
 
+        @include phones {
+            font-size: rem(54px);
+        }
+
         &--title1 {
             align-self: flex-start;
             color: $yellow;  
@@ -207,10 +227,24 @@ header {
     }
 
     &__photo {
-        background: url(../img/burger.png) no-repeat;
         width: 50%;
         margin-right: rem(7px);
-        min-height: rem(420px);             
+        height: rem(420px);
+        
+        @include tablets {
+            width: 100%;
+            height: rem(380px);
+        }
+    
+        @include phones {
+            height: rem(343px);
+        }
+
+        &-img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
     }
 }
 
@@ -218,11 +252,8 @@ header {
     position: absolute;
     width: 100%;
     bottom: rem(40px);
-}
-
-.container--footer { 
-    bottom: rem(40px);
-    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .arrow__scroll {

@@ -13,6 +13,7 @@
 .title--delivery {
     color: $yellow;
     text-align: center;
+    width: 100%;
 
     @include phones {
         font-size: rem(50px);
@@ -77,6 +78,10 @@
         flex-flow: row nowrap;
         color: $white;
 
+        @include tablets {
+            justify-content: center;
+        }
+
         &-type {
             display: flex;
             justify-content: flex-start;
@@ -99,7 +104,7 @@
 
         &-radio:checked + &-fake::after {
             content: "";
-            @include circle(rem(7px),$red);
+            @include circle(rem(7.5px),$red);
             position: absolute;
             top: 50%;
             left: 50%;
@@ -113,6 +118,10 @@
         align-items: center;
         margin-top: rem(30px);
         color: $white;
+
+        @include tablets {
+            justify-content: center;
+        }
 
         &-visual {
             position: absolute;
@@ -144,6 +153,7 @@
         padding: rem(3px) rem(16px);
         line-height: rem(30px);
         border-radius: rem(5px);
+        font-weight: 500;
         cursor: pointer;
         border: 1px solid transparent;
         transition: background-color 0.5s;
@@ -172,10 +182,14 @@
         position: absolute;
         bottom: rem(-50px);
         color: $white;
+        display: flex;
+
+        @include tablets {
+            align-self: center;
+        }
 
         @include phones {
             bottom: rem(-60px);
-            width: rem(300px);
         }
     }
 }
@@ -187,10 +201,9 @@
     margin-right: 2%;
 
     @include tablets {
-        width: 50%;
+        width: 95%;
         margin-right: 0;
     }
-    
 
     &--longline {
         width: 100%; 
@@ -235,7 +248,7 @@
 
     @include tablets {
         margin-top: rem(15px);
-        width: 50%;
+        width: 95%;
     }
 
     &-main {

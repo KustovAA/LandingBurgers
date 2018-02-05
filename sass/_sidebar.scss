@@ -3,6 +3,10 @@
     right: rem(50px);
     top: rem(90px);
     z-index: 600;
+
+    @include tablets {
+        display: none;
+    }
 }
     
 .nav {
@@ -15,7 +19,7 @@
 
     &__item {
         &:hover .nav__item-link {
-            background: #f9b43b;
+            background: $yellow;
         }
     }
 
