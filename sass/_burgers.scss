@@ -43,20 +43,57 @@
     fill: $white;
 }
 
-.burgers__content {
+.burgers__slider {
+    display: flex;
+    position: relative;
+    left: 202%;
+
     @include tablets {
-        flex-direction: column;
+        left: 208%;
+    }
+
+    @include phones {
+        left: 218%;
+    }
+
+    @include phones-min {
+        left: 307%;
+    }
+}
+
+.burgers__content {
+    overflow: hidden;
+
+    @include tablets {
+        width: 62%;
+    }
+
+    @include phones {
+        width: 360%;
+    }
+
+    &-wrap {
+        width: 100%;
+        display: flex;
+
+        @include tablets {
+            flex-direction: column;
+            margin-right: rem(20px);
+        }
+
+        @include phones {
+            width: rem(450px);
+        }
     }
 }
 
 .burgers__picture {
-    width: 50%;
+    width: rem(470px);
     height: rem(470px);
     padding: rem(80px) 0;
     position: relative;
 
     @include tablets {
-        width: 75%;
         padding: 0 0;
         display: flex;
         align-items: flex-end;
@@ -77,7 +114,7 @@
 
     @include phones {
         top: rem(140px);
-        left: rem(-85px);
+        left: 0;
     }
 
     &-icon {
@@ -135,6 +172,9 @@
     height: rem(80px);
     width: rem(65px);
     font-size: rem(14px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
     line-height: 1.2;
     font-family: "Gagalin";
     color: $white;
@@ -150,18 +190,22 @@
     }
 
     @include tablets {
-        position: absolute;
+        left: inherit;
         right: 0;
         top: rem(100px);
     }
 
     @include phones {
-        right: rem(-85px);
+        right: rem(40px);
         top: rem(140px);
     }
 
     @include phones-small {
         padding-top: rem(35px);
+    }
+
+    @include phones-min {
+        right: rem(151px);
     }
 } 
      
@@ -178,13 +222,16 @@
 
     @include phones {
         height: 65%;
-        width: 100%;
-        margin-left: 0;
+        padding-right: rem(60px);
+    }
+
+    @include phones-min {
+        padding-right: rem(130px);
     }
 }
 
 .burgers__desc {
-    width: 50%;
+    width: 470px;
 
     @include tablets {
         width: 100%;
@@ -196,6 +243,11 @@
 
     @include phones {
         margin-bottom: rem(180px);
+        width: 93%;
+    }
+
+    @include phones-min {
+        width: 70%;
     }
 }
 

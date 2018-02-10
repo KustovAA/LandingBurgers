@@ -15,10 +15,11 @@
     position: absolute;
     max-width: 65%;
     height: 100%;
+    top: 0;
     right: 0;
+    bottom: 0;
     background-color: rgba(20, 20, 20, 0.7);
     display: flex;
-    flex-direction: row;
 
     @include tablets {
         max-width: 100%;
@@ -28,18 +29,13 @@
 .menu__item {
     display: flex;
     flex-direction: row;
+    
+}
 
-    &.active { 
-        & .menu__desc-wrapper {
-            width: 100%;
-        }
-
-        & .menu__type-title {
-            color: $yellow;
-        }
+.menu__type-cover.active { 
+    & .menu__type-title {
+        color: $yellow;
     }
-
-
 }
 
 .menu__type-cover {
@@ -90,8 +86,8 @@
 .menu__desc-wrapper {
     background: rgba($dark-grey, 0.93);
     width: 0;
-    transition: width 0.5s;
     overflow: hidden;
+    transition: width 0.5s;
 }
 
 .menu__desc {
