@@ -8,11 +8,7 @@ compactMenu.addEventListener("click", function(event) {
     event.preventDefault();
     about.classList.toggle("open");
 
-    if (canScroll) {
-        canScroll = false;
-    } else {
-        canScroll = true;
-    }
+    canScroll = !canScroll;
 });
 
 // burger components
@@ -124,20 +120,23 @@ document.addEventListener("wheel", function(event) {
     if (canScroll) {
         if (!inScroll) {
             inScroll = true;
-
             if (event.deltaY > 0) {
                 if (scrollLength > -700) {
                     s[scrollLength / (-100)].parentElement.classList.toggle("active");
                     scrollLength -= 100;
                     s[scrollLength / (-100)].parentElement.classList.toggle("active");
                     wrapper.style.top = scrollLength + "%";
-                }
+                } else if (scrollLength == -700) {
+                    inScroll = false;
+                } 
             } else {
                 if (scrollLength < 0) {
                     s[scrollLength / (-100)].parentElement.classList.toggle("active");
                     scrollLength += 100;
                     s[scrollLength / (-100)].parentElement.classList.toggle("active");
                     wrapper.style.top = scrollLength + "%";
+                } else if (scrollLength == 0) {
+                    inScroll = false;
                 }
             }
         }
