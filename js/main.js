@@ -49,7 +49,6 @@ teamList.addEventListener("click", function(event) {
     }
 });
 
-
 // menu accordeon
 
 const menuList = document.querySelector(".menu__list");
@@ -114,13 +113,11 @@ let sections = document.querySelectorAll(".sections");
 
 sections[0].classList.add("active");
 
-document.addEventListener("wheel", function(event) {
-    event.preventDefault();
-
+let scrollPage = deltaY => {
     if (canScroll) {
         if (!inScroll) {
             inScroll = true;
-            if (event.deltaY > 0) {
+            if (deltaY > 0) {
                 if (scrollLength > -700) {
                     s[scrollLength / (-100)].parentElement.classList.toggle("active");
                     scrollLength -= 100;
@@ -141,6 +138,16 @@ document.addEventListener("wheel", function(event) {
             }
         }
     }
+}
+
+document.addEventListener("wheel", function(event) {
+    event.preventDefault();
+    scrollPage(event.deltaY);
+});
+
+document.addEventListener("touchmove", function(event) {
+    event.preventDefault();
+    scrollPage(event.deltaY);
 });
 
 wrapper.addEventListener("transitionend", function() {
@@ -287,3 +294,59 @@ closePopup.addEventListener("click", function(event) {
     popup.classList.remove("active");
     popupWrap.classList.remove("active");
 });
+
+// yandex map
+
+ymaps.ready(init);
+var myMap,
+myPlacemark,
+myPlacemarks = [{
+    latitude: 59.915038,
+    longitude: 30.486096,
+    hintContent: 'Mr.Burger на Товарищеском', 
+    balloonContent: 'Товарищеский проспект, 20/27'
+},
+{
+    latitude: 59.94708381,
+    longitude: 30.38481688,
+    hintContent: 'Mr.Burger на Тверской', 
+    balloonContent: 'Тверская улица, 16'
+},
+{
+    latitude: 59.891295,
+    longitude: 30.316907,
+    hintContent: 'Mr.Burger на Московском', 
+    balloonContent: 'Московский проспект, 103к2'
+},
+{
+    latitude: 59.973999,
+    longitude: 30.311091,
+    hintContent: 'Mr.Burger на Чапыгина', 
+    balloonContent: 'улица Чапыгина, 13А'
+}];
+
+function init(){     
+    myMap = new ymaps.Map("map", {
+        center: [59.92606548, 30.32610869],
+        zoom: 11,
+        controls: ["zoomControl"],
+        behaviors: ["drag"]
+    });
+
+    myPlacemarks.forEach(function(obj) {
+        myPlacemark = new ymaps.Placemark([obj.latitude, obj.longitude],
+            { 
+                hintContent: obj.hintContent, 
+                hintContent: obj.balloonContent
+            },
+            {
+                iconLayout: 'default#image',
+                iconImageHref: 'img/map-marker.svg',
+                iconImageSize: [46, 57],
+                iconImageOffset: [-15, -50]
+            }
+        );
+
+        myMap.geoObjects.add(myPlacemark);
+    });
+}

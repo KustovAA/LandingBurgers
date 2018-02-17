@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
@@ -77,7 +78,7 @@
             </nav>
         </aside>
 
-        <section class="sections first-screen">
+        <section class="sections first-screen active">
             <header class="header">
                 <div class="container container--header">
                     <a class="logo" href="index.html">
@@ -1172,6 +1173,7 @@
         </section>
 
         <section class="sections map">
+            <div class="map__interactive" id="map"></div>
             <footer class="footer">
                 <div class="container--map">
                     <div class="footer__contacts">
