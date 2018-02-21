@@ -103,20 +103,23 @@
     }
 }
 
-.team__item.active {
-    & .team__info {
-        height: rem(105px);
+.team__item-name.active {
 
-        @include tablets {
-            height: rem(205px);
-        }
+    color: $yellow;
+
+    &::before {
+        transform: rotate(180deg);
+        align-self: flex-start;
     }
 
-    & .team__item-name {
-        color: $yellow;
-        &::before {
-            transform: rotate(180deg);
-            align-self: flex-start;
+    & + .team__info-wrapper {
+
+        & .team__info {
+            height: rem(105px);
+
+            @include tablets {
+                height: rem(205px);
+            }
         }
     }
 }

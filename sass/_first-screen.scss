@@ -218,6 +218,10 @@ header {
             @include tablets {
                 align-self: center;
             }
+
+            @include phones-min {
+                font-size: rem(54px);
+            }
         }
 
         &--title2 {
@@ -243,6 +247,10 @@ header {
         &-img {
             max-height: 100%;
             max-width: 100%;
+
+            @include phones-min {
+                max-height: 90%;
+            }
         }
 
     }
