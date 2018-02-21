@@ -350,3 +350,49 @@ function init(){
         myMap.geoObjects.add(myPlacemark);
     });
 }
+
+// delivery
+
+$(() => {
+    let submit = event => {
+        event.preventDefault();
+
+        let 
+            form = $(event.target),
+            url = form.attr("action"),
+            data = form.serialize();
+
+            console.log(data);
+        
+        let request = $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            dataType:'JSON'
+        });
+
+        request.done(msg => {
+            let mes = msg.mes,
+            status = msg.status;
+            if (status === 'OK') {
+                $('.modal').addClass('active');
+                form[0].reset();
+            } else {
+                alert(mes);
+                form[0].reset();
+            }
+        });
+
+        request.fail( (jqXHR, textStatus) => {
+            alert("Request failed: " + textStatus);
+            form[0].reset();
+        });
+    }
+
+    $('#form').on('submit', submit);
+
+    $('.modal__btn').on('click', event => {
+        event.preventDefault;
+        $(event.target).closest('.modal').removeClass('active');
+    })
+})
